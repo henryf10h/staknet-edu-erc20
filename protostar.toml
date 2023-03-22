@@ -4,6 +4,6 @@ lib-path = "lib"
 cairo-path = ["lib/cairo_contracts/src"]
 
 [contracts]
-main = ["src/main.cairo"]
-ex01 = ["src/ex01.cairo"]
 
+ex01 = ["src/ex01.cairo"]
+ex0456 = ["src/ex0456.cairo"]
