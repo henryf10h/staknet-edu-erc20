@@ -7,3 +7,4 @@ cairo-path = ["lib/cairo_contracts/src"]
 
 ex01 = ["src/ex01.cairo"]
 ex0456 = ["src/ex0456.cairo"]
+ex0789 = ["src/ex0789.cairo"]
