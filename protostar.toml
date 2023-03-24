@@ -11,4 +11,7 @@ ex0789 = ["src/ex0789.cairo"]
 ex11 = ["src/ExerciseSolution.cairo"]
 idtk = ["src/IDTKERC20.cairo"]
 ex12 = ["src/ex12.cairo"]
+ex15 = ["src/ex15.cairo"]
+ex1617 = ["src/ex16_17.cairo"]
+solerc20 = ["src/SOLERC20.cairo"]
 

@@ -64,4 +64,33 @@ func get_tokens_from_contract{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, ra
     return(amount=custody_difference);
 }
 
+@external
+func withdraw_all_tokens{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}()->(amt:Uint256) {
+    alloc_locals;
 
+    let (sender) = get_caller_address();
+    let (contract) = get_contract_address();
+    let (dtk) = dummy_token_address();
+    let (balance) = tokens_in_custody(sender);
+
+    balance_of.write(sender,Uint256(0,0));
+    IDTKERC20.transfer(dtk,sender,balance);
+
+    return(amt=balance);
+}
+
+@external
+func deposit_tokens{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(
+    amount: Uint256
+)->(amt:Uint256) {
+    alloc_locals;
+
+    let (sender) = get_caller_address();
+    let (contract) = get_contract_address();
+    let (dtk) = dummy_token_address();
+    IDTKERC20.transferFrom(dtk, sender, contract, amount);
+
+    balance_of.write(sender,amount);
+
+    return(amt=amount);
+}
