@@ -104,11 +104,10 @@ func deposit_tokens{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_
     let (dtk) = dummy_token_address();
     let (solerc20) = deposit_tracker_token();
     let amt : Uint256 = Uint256(amount,0);
-
+    
+    balance_of.write(contract,amt);
     IDTKERC20.transferFrom(dtk, sender, contract, amt);
     ISOLERC20.mint(solerc20, sender, amount);
-
-    balance_of.write(sender,amt);
 
     return(amt=amt);
 }
